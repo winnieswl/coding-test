@@ -14,11 +14,7 @@
 3. Run in Docker:
 
        docker build -t treefera-coding-test:v1 .
-       docker run --rm \
-         -v "$PWD/data":/data:ro \
-         -v "$PWD/output":/output \
-         -e DATA_DIR=/data -e OUTPUT_DIR=/output \
-         treefera-coding-test:v1 --crop <crop> --season <season> --as-of <as-of-date>
+       docker run --rm -v "$PWD/data":/data:ro -v "$PWD/output":/output -e DATA_DIR=/data -e OUTPUT_DIR=/output treefera-coding-test:v1 --crop <crop> --season <season> --as-of <as-of-date>
 
    Or run locally with uv (Python 3.13):
 
