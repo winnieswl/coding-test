@@ -3,6 +3,7 @@ import os
 import pandas as pd
 
 from treefera_coding_test.models.v1 import v1
+from treefera_coding_test.models.v2 import v2
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Treefera Coding Test")
@@ -29,7 +30,7 @@ def save_output(yield_forecast, out_path):
 def main():
 
     # Define the available model versions and their corresponding functions
-    MODELS = {"v1": v1}    
+    MODELS = {"v1": v1, "v2": v2}    
 
     # Get command-line arguments
     args = parse_args()
