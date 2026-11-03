@@ -1,6 +1,12 @@
 """ Data processing functions for handling crop data. """
 
 import xarray as xr
+import os
+from pathlib import Path
+
+def load_crop_data(crop: str) -> xr.Dataset:
+    data_dir = Path(os.environ.get("DATA_DIR", "data"))
+    return xr.open_zarr(data_dir / "fr_de_wheat_cube.zarr")
 
 
 def load_crop_data(crop: str) -> xr.Dataset:
@@ -14,7 +20,8 @@ def load_crop_data(crop: str) -> xr.Dataset:
     xr.Dataset: The loaded xarray Dataset containing the crop data.
     """
     # Load the crop data from the corresponding Zarr file
-    crop_data = xr.open_zarr(f"data/{crop}_cube.zarr")
+    data_dir = Path(os.environ.get("DATA_DIR", "data"))
+    crop_data = xr.open_zarr(data_dir / f"{crop}_cube.zarr")
 
     # For v1, we need "year", "adm_id", and "yield" variables. Ensure these are present in the dataset.
     if "yield" not in crop_data.data_vars:
