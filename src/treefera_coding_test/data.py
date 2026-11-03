@@ -5,11 +5,6 @@ import os
 from pathlib import Path
 
 def load_crop_data(crop: str) -> xr.Dataset:
-    data_dir = Path(os.environ.get("DATA_DIR", "data"))
-    return xr.open_zarr(data_dir / "fr_de_wheat_cube.zarr")
-
-
-def load_crop_data(crop: str) -> xr.Dataset:
     """
     Load crop data from a Zarr file based on the specified crop type.
 
