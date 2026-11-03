@@ -33,10 +33,6 @@ Predictions are written to `output/`.
 
 ## Answers to tasks
 
-around 30 minutes loading data and reviewing data
-around 60 minutes to design and test v1
-around 30 minutes to containerise and test 
-
 1. Define v1 model: define the simplest model you can imagine (even just a random number generator). We are not interested in your modelling decisions here, more the deployment, promotion and observation of models in production.
 
     * Approach: 
