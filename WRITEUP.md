@@ -36,6 +36,7 @@ Promote or not. Build a v2 you believe improves on v1, then decide whether it sh
 
 ## Task 4
 Observe. Write a short design for monitoring this model in live use. We want to see how you would visualise the model as it runs each week - what inputs have changed, how has that impacted the output predictions and data drift checks. Bear in mind that actual yields arrive a year late: tell us what you would watch in the meantime, what would trigger an alert, and how you would evaluate the model once yields are published. This task is a written design; you do not need to build it.
+
     * Monitoring model:
         * Data input:
             * Monitor new data inputs for anomalies. E.g. Regional total rainfall in months remain within +/- 5%.
@@ -54,3 +55,6 @@ Observe. Write a short design for monitoring this model in live use. We want to 
             * Also may need to consider increase of extreme weather events intensity and frequency, whose impact on crop yield may not be fully captured by climate data used in the model. 
         * Model evaluation:
             * Once new data is published, I would compare model forecast against the latest data, to assess whether current approach is still valid by evaluating the RMSE, but a larger RMSE may also be related to "abnormal" weather conditions for that particular year, so a large RMSE may not necessarily mean the model is no longer valid. 
+        * Visualisation:
+            * Since we're interested in monitoring live use, I would display a map of the region of interest, colouring by the difference between current forecast and the average yield among recent years.
+            * I would also include a similar map, coloured by the difference between most recent climate / soil data (e.g. total rainfall) and the average climate / soil data. This would help understanding whether any shifts in output is expected from any shift in input. 
