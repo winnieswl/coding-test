@@ -25,9 +25,9 @@
        uv sync
        DATA_DIR=data OUTPUT_DIR=output uv run treefera-coding-test --crop <crop> --season <season> --as-of <as-of-date>
 
-    * <crop> is optional. Default is "fr_de_wheat", which represents wheat in France and Germany
-    * <season> is optional. Default is 2024.
-    * <as-of-date> is required, in format of YYYY-MM-DD.
+    * `<crop>` is optional. Default is "fr_de_wheat", which represents wheat in France and Germany
+    * `<season>` is optional. Default is 2024.
+    * `<as-of-date>` is required, in format of YYYY-MM-DD.
 
 Predictions are written to `output/`.
 
