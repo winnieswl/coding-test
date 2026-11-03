@@ -67,4 +67,21 @@ around 30 minutes to containerise and test
         * When rolling out new version, we should also communicate with user what changes the new version include, and how they should expect the performance to change. The change in performance could cover: runtime, accuracy, uncertainty/confidence of output.  
 
 4. Observe. Write a short design for monitoring this model in live use. We want to see how you would visualise the model as it runs each week - what inputs have changed, how has that impacted the output predictions and data drift checks. Bear in mind that actual yields arrive a year late: tell us what you would watch in the meantime, what would trigger an alert, and how you would evaluate the model once yields are published. This task is a written design; you do not need to build it.
-
+    * Monitoring model:
+        * Data input:
+            * Monitor new data inputs for anomalies. E.g. Regional total rainfall in months remain within +/- 5%.
+            * Monitor distributions for new data inputs align with calibration data. 
+            * Monitor portion of missing data. New data should not contain significantly more missing data
+        * Data output:
+            * Monitor output are within +/- 5% of regional mean. 
+            * Monitor shifts in output is consistent with shifts in input data. E.g. expect lower yield if this year seems excessive winter rainfall.
+        * Model performance:
+            * Monitor model run time, significantly shorter runtime could be caused by input data issues. 
+        * Model parameters:
+            * If model depends on calibrated parameters that are updated regularly, monitor the calibrated parameters remain within +/- 5%. More significant changes may require additional investigation.
+            * If model depends on static parameters, we will also need to monitor or assess if statis parameters are still valid with new climate data. 
+        * Delay in yield data:
+            * Monitor input climate data, to check that the latest climate metrics are within our historical range. If climate data shows abnormal value, we may expect yield for this year to be outside of expected range. (E.g. year of extremely dry summer and wet winter) This may trigger an alert to evaluate the model by comparing it to other "extreme" years in the past. 
+            * Also may need to consider increase of extreme weather events intensity and frequency, whose impact on crop yield may not be fully captured by climate data used in the model. 
+        * Model evaluation:
+            * Once new data is published, I would compare model forecast against the latest data, to assess whether current approach is still valid by evaluating the RMSE, but a larger RMSE may also be related to "abnormal" weather conditions for that particular year, so a large RMSE may not necessarily mean the model is no longer valid. 
