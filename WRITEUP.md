@@ -1,5 +1,5 @@
-## Task 1
-Define v1 model: define the simplest model you can imagine (even just a random number generator). We are not interested in your modelling decisions here, more the deployment, promotion and observation of models in production.
+## Task 1 Define v1 model:
+define the simplest model you can imagine (even just a random number generator). We are not interested in your modelling decisions here, more the deployment, promotion and observation of models in production.
 
     * Approach: 
         * Forecast is assumed to be the regional average yield calculated from the 5 most recent year based on as-of date. (e.g. For as-of date of 2022-06-01, it will use 2018-2022 data.)
@@ -10,16 +10,16 @@ Define v1 model: define the simplest model you can imagine (even just a random n
         * This approach only depend on the "as_of_date", so ideally the "as_of_date" should be closer to the "forecast_data". Using older as_of_date may not be sensible approach. (e.g. Using the 5-year average between 2005-2009 to forecast yield in 2025).
         * The current v1 model code only compute yield for a single crop type.
 
-## Task 2
-Deploy v1 model. Package the baseline so it can run as a batch prediction job: given a crop, a season and an as-of date, it produces regional yield estimates. It should build and run from a clean clone, with versioned artefacts and no data or secrets baked into the image. Tell us how you would schedule it. We use dagster internally.
+## Task 2 Deploy v1 model. 
+Package the baseline so it can run as a batch prediction job: given a crop, a season and an as-of date, it produces regional yield estimates. It should build and run from a clean clone, with versioned artefacts and no data or secrets baked into the image. Tell us how you would schedule it. We use dagster internally.
 
     * Containerised v1 model in Docker image. Takes crop, season and as-of date as input, though the variable "season" is not used in v1 of model.
     * Scheduling:
         * Trigger run when latest yield data is available since v1 model only uses historic yield data.
         * If newer version is introduced and is run at a more frequent schedule, I would run v1 model more frequently to match the newer version to allow comparison. 
 
-## Task 3
-Promote or not. Build a v2 you believe improves on v1, then decide whether it should replace v1 in production, it can be as simple as an interaction effect. Set out the evidence and the criteria you used, and what you would do before switching over. This is very similar to our promotion process internally.
+## Task 3 Promote or not. 
+Build a v2 you believe improves on v1, then decide whether it should replace v1 in production, it can be as simple as an interaction effect. Set out the evidence and the criteria you used, and what you would do before switching over. This is very similar to our promotion process internally.
 
     * For v2, take into account of total rainfall in most recent winter of forecast year. 
     * Criteria for promotion:
@@ -34,8 +34,8 @@ Promote or not. Build a v2 you believe improves on v1, then decide whether it sh
         * Not decided yet, as will need to test and compare the approaches.
         * I would back-test v1 and v2 using older datset, then evaluate the models based on my criteria for promotion above. 
 
-## Task 4
-Observe. Write a short design for monitoring this model in live use. We want to see how you would visualise the model as it runs each week - what inputs have changed, how has that impacted the output predictions and data drift checks. Bear in mind that actual yields arrive a year late: tell us what you would watch in the meantime, what would trigger an alert, and how you would evaluate the model once yields are published. This task is a written design; you do not need to build it.
+## Task 4 Observe. 
+Write a short design for monitoring this model in live use. We want to see how you would visualise the model as it runs each week - what inputs have changed, how has that impacted the output predictions and data drift checks. Bear in mind that actual yields arrive a year late: tell us what you would watch in the meantime, what would trigger an alert, and how you would evaluate the model once yields are published. This task is a written design; you do not need to build it.
 
     * Monitoring model:
         * Data input:
