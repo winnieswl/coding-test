@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data files
+data/
+
+# Run outputs
+output/
+
+# Notebooks and exploration
+notebooks/
+.ipynb_checkpoints/
+
+# Test and tool caches
+.pytest_cache/
+
+# macOS
+.DS_Store

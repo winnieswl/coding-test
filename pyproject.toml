@@ -1,0 +1,30 @@
+[project]
+name = "treefera-coding-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "winnieliu", email = "72011096+winnieswl@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "geopandas>=1.2.0",
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.1",
+    "xarray>=2026.9.0",
+    "zarr>=3.4.2",
+]
+
+[project.scripts]
+treefera-coding-test = "treefera_coding_test.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "pytest>=9.2.0",
+]
