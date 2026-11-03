@@ -49,7 +49,7 @@ Observe. Write a short design for monitoring this model in live use. We want to 
             * Monitor model run time, significantly shorter runtime could be caused by input data issues. 
         * Model parameters:
             * If model depends on calibrated parameters that are updated regularly, monitor the calibrated parameters remain within +/- 5%. More significant changes may require additional investigation.
-            * If model depends on static parameters, we will also need to monitor or assess if statis parameters are still valid with new climate data. 
+            * If model depends on static parameters, we will also need to monitor or assess if static parameters are still valid with new climate data. 
         * Delay in yield data:
             * Monitor input climate data, to check that the latest climate metrics are within our historical range. If climate data shows abnormal value, we may expect yield for this year to be outside of expected range. (E.g. year of extremely dry summer and wet winter) This may trigger an alert to evaluate the model by comparing it to other "extreme" years in the past. 
             * Also may need to consider increase of extreme weather events intensity and frequency, whose impact on crop yield may not be fully captured by climate data used in the model. 
